@@ -21,7 +21,10 @@ public final class WeatherProvider {
             throw new IllegalArgumentException("coordinates must not be null");
         }
 
-        // TODO get weather from coordinates and return it
-        return (null);
+        // Simple generation algorithm that returns any coordinates' weather
+        int seed = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
+        index = seed + 42 % 4;
+
+        return (weather[index]);
     }
 }
