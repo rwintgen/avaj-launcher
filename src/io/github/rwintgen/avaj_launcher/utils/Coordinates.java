@@ -6,19 +6,31 @@ public final class Coordinates {
     private final int latitude;
     private final int height;
 
-    public Coordinates(int longitude, int latitude, int height) {
-        if (longitude < 0) {
-            throw new IllegalArgumentException("longitude must be >= 0");
+    public Coordinates(int p_longitude, int p_latitude, int p_height) {
+        if (p_longitude < 1) {
+            throw new IllegalArgumentException("longitude must be > 0 (current: " + p_longitude + ").");
         }
-        if (latitude < 0) {
-            throw new IllegalArgumentException("latitude must be >= 0");
+        if (p_latitude < 1) {
+            throw new IllegalArgumentException("latitude must be > 0 (current: " + p_latitude + ").");
         }
-        if (height < 0 || height > 100) {
-            throw new IllegalArgumentException("height must be between 0 and 100");
+        if (p_height < 0 || p_height > 100) {
+            throw new IllegalArgumentException("height must be between 0 and 100 (current: " + p_height + ").");
         }
 
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.height = height;
+        longitude = p_longitude;
+        latitude = p_latitude;
+        height = p_height;
+    }
+
+    int getLongitude() {
+        return (longitude);
+    }
+
+    int getLatitude() {
+        return (latitude);
+    }
+
+    int getHeight() {
+        return (height);
     }
 }
