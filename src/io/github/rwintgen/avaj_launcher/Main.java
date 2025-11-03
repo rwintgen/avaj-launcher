@@ -10,7 +10,7 @@ public class Main {
             Parser.parseScenarioFile(args[0]);
         }
         catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println(e.getMessage());
             e.printStackTrace();
             System.exit(1);
         }
