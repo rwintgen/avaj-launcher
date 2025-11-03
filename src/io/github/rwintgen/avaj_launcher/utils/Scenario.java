@@ -21,8 +21,8 @@ public final class Scenario {
         final Coordinates coords;
 
         AircraftSpecs (String p_type, String p_name, Coordinates p_coords) {
-            type = type.toLowerCase();
-            name = name.toLowerCase();
+            p_type = p_type.toLowerCase();
+            p_name = p_name.toLowerCase();
 
             if (!p_type.equals("baloon") && !p_type.equals("helicopter") && !p_type.equals("jetplane")) {
                 throw new IllegalArgumentException("invalid Aircraft type: \'" + p_type + "\' must be one of Baloon, Helicopter or Jetplane.");

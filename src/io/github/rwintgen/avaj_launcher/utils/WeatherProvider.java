@@ -22,5 +22,6 @@ public final class WeatherProvider {
         }
 
         // TODO get weather from coordinates and return it
+        return (null);
     }
 }

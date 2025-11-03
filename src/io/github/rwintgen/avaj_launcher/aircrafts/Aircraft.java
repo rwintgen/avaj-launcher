@@ -9,17 +9,14 @@ abstract class Aircraft implements Flyable {
     protected final String name;
     protected Coordinates coordinates;
 
-    abstract void updateConditions() {
-    }
-
-    abstract void registerTower(WeatherTower p_tower) {
-    }
+    public abstract void updateConditions();
+    public abstract void registerTower(WeatherTower p_tower);
 
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
         if (p_id < 0) {
             throw new IllegalArgumentException("Aircraft id must be a positive integer (current: " + p_id + ").");
         }
-        if (p_name == null || p_name.empty()) {
+        if (p_name == null || p_name.isEmpty()) {
             throw new IllegalArgumentException("Aircraft name cannot be empty.");
         }
 
