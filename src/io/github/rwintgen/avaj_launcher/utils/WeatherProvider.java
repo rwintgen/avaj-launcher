@@ -3,7 +3,6 @@ package io.github.rwintgen.avaj_launcher.utils;
 public final class WeatherProvider {
 
     private static WeatherProvider instance;
-
     private final String[] weather = { "SUN", "RAIN", "FOG", "SNOW" };
 
     private WeatherProvider() {

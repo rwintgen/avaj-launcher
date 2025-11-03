@@ -3,12 +3,12 @@ package io.github.rwintgen.avaj_launcher.buildings;
 public class AircraftFactory {
 
     private static AircraftFactory instance;
-    private static long id = 0;
+    private static final long id = 0;
 
     private AircraftFactory() {
     }
 
-    public AircraftFactory getInstance() {
+    public static AircraftFactory getInstance() {
         if (instance == null) {
             instance = new AircraftFactory();
         }
