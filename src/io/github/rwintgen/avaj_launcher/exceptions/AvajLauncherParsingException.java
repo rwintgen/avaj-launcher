@@ -1,4 +1,4 @@
-package io.github.rwintgen.avaj_launcher;
+package io.github.rwintgen.avaj_launcher.exceptions;
 
 public class AvajLauncherParsingException extends AvajLauncherException {
     public AvajLauncherParsingException(String msg) {

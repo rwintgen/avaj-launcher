@@ -3,7 +3,7 @@ package io.github.rwintgen.avaj_launcher;
 import io.github.rwintgen.avaj_launcher.exceptions.AvajLauncherParsingException;
 
 class Parser {
-    private static void checkFileName (String fileName) {
+    private static void checkFileName (String fileName) throws AvajLauncherParsingException{
         if (fileName == null || fileName.isEmpty() || !fileName.endsWith(".txt")) {
             throw new AvajLauncherParsingException("Invalid file name or extension.");
         }
