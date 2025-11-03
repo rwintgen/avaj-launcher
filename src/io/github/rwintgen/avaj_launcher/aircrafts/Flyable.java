@@ -1,6 +1,6 @@
 package io.github.rwintgen.avaj_launcher.aircrafts;
 
-import io.github.rwintgen.avaj_launcher.weather.WeatherTower;
+import io.github.rwintgen.avaj_launcher.buildings.WeatherTower;
 
 public interface Flyable {
 

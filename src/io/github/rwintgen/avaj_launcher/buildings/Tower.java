@@ -1,16 +1,15 @@
-package io.github.rwintgens.avaj_launcher.buildings;
+package io.github.rwintgen.avaj_launcher.buildings;
 
-import io.github.rwintgens.avaj_launcher.aircrafts.Flyable;
+import io.github.rwintgen.avaj_launcher.aircrafts.Flyable;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Tower {
 
-    private List<Flyable> observers;
+    private List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable p_flyable) {
-        if (observers == null) {
-            observers = new List<Flyable>;
-        } else {
+        if (p_flyable != null) {
             observers.add(p_flyable);
         }
     }
