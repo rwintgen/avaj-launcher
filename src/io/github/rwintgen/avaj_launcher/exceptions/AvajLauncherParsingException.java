@@ -1,7 +1,0 @@
-package io.github.rwintgen.avaj_launcher.exceptions;
-
-public class AvajLauncherParsingException extends AvajLauncherException {
-    public AvajLauncherParsingException(String msg) {
-        super("Parsing Error: " + msg);
-    }
-}
