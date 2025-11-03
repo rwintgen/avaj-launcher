@@ -50,7 +50,7 @@ public final class Parser {
             line = content.get(i++);
             runs = Integer.parseInt(line);
 
-            if (runs <= 0) {
+            if (runs < 1) {
                 throw new NumberFormatException();
             }
 
