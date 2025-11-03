@@ -20,17 +20,17 @@ public final class Scenario {
         final String name;
         final Coordinates coords;
 
-        AircraftSpecs (String type, String name, Coordinates coords) {
+        AircraftSpecs (String p_type, String p_name, Coordinates p_coords) {
             type = type.toLowerCase();
             name = name.toLowerCase();
 
-            if (!type.equals("baloon") && !type.equals("helicopter") && !type.equals("jetplane")) {
-                throw new IllegalArgumentException("invalid Aircraft type: \'" + type + "\' must be one of Baloon, Helicopter or Jetplane.");
+            if (!p_type.equals("baloon") && !p_type.equals("helicopter") && !p_type.equals("jetplane")) {
+                throw new IllegalArgumentException("invalid Aircraft type: \'" + p_type + "\' must be one of Baloon, Helicopter or Jetplane.");
             }
 
-            this.type = type;
-            this.name = name;
-            this.coords = coords;
+            type = p_type;
+            name = p_name;
+            coords = p_coords;
         }
     }
 }
