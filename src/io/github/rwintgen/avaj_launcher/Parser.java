@@ -1,6 +1,10 @@
 package io.github.rwintgen.avaj_launcher;
 
 import io.github.rwintgen.avaj_launcher.exceptions.AvajLauncherParsingException;
+import java.io.IOException;
+import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 class Parser {
     private static void checkFileName (String fileName) throws AvajLauncherParsingException {
@@ -9,14 +13,19 @@ class Parser {
         }
     }
 
-    protected static void parseScenarioFile (String fileName) throws AvajLauncherParsingException {
+    private static List<String> readFile(String fileName) throws AvajLauncherParsingException {
         try {
-            checkFileName(fileName);
-            // type fileContents = readFile(fileName);
-            // type data = createDataObject(fileContents)
+            List<String> fileContents = Files.readAllLines(Paths.get(fileName));
+            return (fileContents);
+        } catch (IOException e) { // Convert readAllLines' IOException into custom AvajLauncherParsingException
+            throw new AvajLauncherParsingException("Unable to read file: " + fileName);
         }
-        catch (Exception e) {
-            throw e;
-        }
+    }
+
+    protected static void parseScenarioFile (String fileName) throws AvajLauncherParsingException {
+        checkFileName(fileName);
+        List<String> fileContents = readFile(fileName);
+        // validateAndFormatFileContents(fileContents)
+        // new Scenario scenarioData(fileContents);
     }
 }
