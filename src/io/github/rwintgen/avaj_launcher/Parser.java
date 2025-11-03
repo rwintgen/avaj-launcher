@@ -1,11 +1,11 @@
 package io.github.rwintgen.avaj_launcher;
 
-import java.io.FileNotFoundException;
+import io.github.rwintgen.avaj_launcher.exceptions.AvajLauncherParsingException;
 
 class Parser {
-    private static void checkFileName (String fileName) throws FileNotFoundException {
+    private static void checkFileName (String fileName) {
         if (fileName == null || fileName.isEmpty() || !fileName.endsWith(".txt")) {
-            throw new FileNotFoundException("Invalid file name or extension.");
+            throw new AvajLauncherParsingException("Invalid file name or extension.");
         }
     }
 
@@ -16,9 +16,8 @@ class Parser {
             // type data = createDataObject(fileContents)
         }
         catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Parsing Error: " + e.getMessage());
             e.printStackTrace();
-            // Throw custom exception?
         }
     }
 }
