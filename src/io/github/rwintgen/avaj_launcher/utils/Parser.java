@@ -1,4 +1,4 @@
-package io.github.rwintgen.avaj_launcher;
+package io.github.rwintgen.avaj_launcher.utils;
 
 import io.github.rwintgen.avaj_launcher.exceptions.ALParsingException;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-final class Parser {
+public final class Parser {
 
     private Parser() {
     };
@@ -89,7 +89,7 @@ final class Parser {
         }
     }
 
-    protected static Scenario parseScenarioFile(String fileName) throws ALParsingException {
+    public static Scenario parseScenarioFile(String fileName) throws ALParsingException {
         checkFileName(fileName);
         List<String> fileContents = readFile(fileName);
         List<String> formattedFileContents = formatFileContents(fileContents);

@@ -1,4 +1,4 @@
-package io.github.rwintgen.avaj_launcher;
+package io.github.rwintgen.avaj_launcher.utils;
 
 public final class Coordinates {
 

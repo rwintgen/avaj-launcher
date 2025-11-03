@@ -1,4 +1,4 @@
-package io.github.rwintgen.avaj_launcher;
+package io.github.rwintgen.avaj_launcher.utils;
 
 import java.util.List;
 

@@ -1,5 +1,8 @@
 package io.github.rwintgen.avaj_launcher;
 
+import io.github.rwintgen.avaj_launcher.utils.Parser;
+import io.github.rwintgen.avaj_launcher.utils.Scenario;
+
 public class Main {
 
     public static void main(String[] args) {
