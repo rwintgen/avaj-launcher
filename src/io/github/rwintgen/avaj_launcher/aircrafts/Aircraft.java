@@ -7,7 +7,9 @@ abstract class Aircraft implements Flyable {
 
     protected final long id;
     protected final String name;
+    protected final String type;
     protected Coordinates coordinates;
+    protected final WeatherTower weatherTower;
 
     public abstract void updateConditions();
     public abstract void registerTower(WeatherTower p_tower);

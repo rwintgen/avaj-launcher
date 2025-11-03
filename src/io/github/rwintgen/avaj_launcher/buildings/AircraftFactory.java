@@ -1,5 +1,7 @@
 package io.github.rwintgen.avaj_launcher.buildings;
 
+import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
+
 public class AircraftFactory {
 
     private static AircraftFactory instance;

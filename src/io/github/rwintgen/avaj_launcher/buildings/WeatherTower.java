@@ -5,11 +5,10 @@ import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 public class WeatherTower extends Tower {
 
     public String getWeather(Coordinates p_coordinates) {
-        // TODO: Implement function
-        return (null);
+        return (WeatherProvider.getInstance().getCurrentWeather());
     }
 
     public void changeWeather () {
-        // TODO: Implement function
+        this.conditionsChanged();
     }
 }
