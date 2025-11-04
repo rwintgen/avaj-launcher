@@ -1,6 +1,5 @@
 package io.github.rwintgen.avaj_launcher.aircrafts;
 
-import io.github.rwintgen.avaj_launcher.aircrafts.JetPlane;
 import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 import java.util.Dictionary;
@@ -12,7 +11,8 @@ public class JetPlane extends Aircraft {
 
     public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_id, p_name, p_coordinates);
-        type = "jetplane";
+        type = "JetPlane";
+        fullId = type + "#" + name + "(" + id + ")";
 
         broadcasts.put("rain", "Rain (JetPlane)");
         broadcasts.put("fog", "Fog (JetPlane)");

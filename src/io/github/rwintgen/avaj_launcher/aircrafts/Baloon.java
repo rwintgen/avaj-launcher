@@ -1,6 +1,5 @@
 package io.github.rwintgen.avaj_launcher.aircrafts;
 
-import io.github.rwintgen.avaj_launcher.aircrafts.Baloon;
 import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 import java.util.Hashtable;
@@ -12,7 +11,8 @@ public class Baloon extends Aircraft {
 
     public Baloon(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_id, p_name, p_coordinates);
-        type = "baloon";
+        type = "Baloon";
+        fullId = type + "#" + name + "(" + id + ")";
 
         broadcasts.put("rain", "Rain (Baloon)");
         broadcasts.put("fog", "Fog (Baloon)");

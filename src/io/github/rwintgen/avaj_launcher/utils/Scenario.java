@@ -44,8 +44,6 @@ public final class Scenario {
         WeatherTower weatherTower = new WeatherTower();
         List<Flyable> aircrafts = new ArrayList<>();
 
-        // open output file
-
         for (AircraftSpecs as : aircraftsSpecs) {
             Flyable aircraft = AircraftFactory.getInstance().newAircraft(as.type, as.name, as.coords);
             aircraft.registerTower(weatherTower);
@@ -53,12 +51,7 @@ public final class Scenario {
         }
 
         for (int i = 0 ; i < runs ; i++) {
-            for (Flyable a : aircrafts) {
-                // Log status
-            }
             weatherTower.changeWeather();
         }
-
-        // close output file
     }
 }
