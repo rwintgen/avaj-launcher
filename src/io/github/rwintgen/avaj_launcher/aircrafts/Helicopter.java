@@ -34,13 +34,4 @@ public class Helicopter extends Aircraft {
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }
     }
-
-    public abstract void registerTower(WeatherTower p_tower) {
-        if (p_tower == null) {
-            throw new ALSimulationException("No weather tower found");
-        }
-
-        weatherTower = p_tower;
-        p_tower.register(this);
-    }
 }

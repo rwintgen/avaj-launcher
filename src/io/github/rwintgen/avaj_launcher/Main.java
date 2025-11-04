@@ -12,6 +12,7 @@ public class Main {
             }
 
             Scenario scenarioData = Parser.parseScenarioFile(args[0]);
+            scenarioData.startSimulation();
         } catch (Exception e) {
             System.err.println(e.getMessage());
             e.printStackTrace();

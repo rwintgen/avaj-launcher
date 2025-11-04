@@ -13,7 +13,6 @@ abstract class Aircraft implements Flyable {
     protected final WeatherTower weatherTower;
 
     public abstract void updateConditions();
-    public abstract void registerTower(WeatherTower p_tower);
 
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
         if (p_id < 0) {
@@ -26,6 +25,15 @@ abstract class Aircraft implements Flyable {
         id = p_id;
         name = p_name;
         coordinates = p_coordinates;
+    }
+
+    public abstract void registerTower(WeatherTower p_tower) {
+        if (p_tower == null) {
+            throw new ALSimulationException("No weather tower found");
+        }
+
+        weatherTower = p_tower;
+        p_tower.register(this);
     }
 
     protected changeCoords(String direction, int amount) {
