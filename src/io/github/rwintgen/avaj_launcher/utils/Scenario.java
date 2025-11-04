@@ -1,5 +1,10 @@
 package io.github.rwintgen.avaj_launcher.utils;
 
+import io.github.rwintgen.avaj_launcher.buildings.WeatherTower;
+import io.github.rwintgen.avaj_launcher.buildings.AircraftFactory;
+import io.github.rwintgen.avaj_launcher.aircrafts.Flyable;
+import io.github.rwintgen.avaj_launcher.utils.Coordinates;
+import java.util.ArrayList;
 import java.util.List;
 
 public final class Scenario {
@@ -7,8 +12,11 @@ public final class Scenario {
     private final List<AircraftSpecs> aircraftsSpecs;
 
     public Scenario(int p_runs, List<AircraftSpecs> p_aircraftsSpecs) {
-        if (runs < 1) {
-            throw new IllegalArgumentException("invalid parameter: \'" + runs + "\' must be a positive integer.");
+        if (p_runs < 1) {
+            throw new IllegalArgumentException("invalid parameter: \'" + p_runs + "\' must be a positive integer.");
+        }
+        if (p_aircraftsSpecs == null) {
+            throw new IllegalArgumentException("invalid aircraftSpecs found.");
         }
 
         runs = p_runs;
@@ -24,27 +32,35 @@ public final class Scenario {
             p_type = p_type.toLowerCase();
             p_name = p_name.toLowerCase();
 
-            if (!p_type.equals("baloon") && !p_type.equals("helicopter") && !p_type.equals("jetplane")) {
+            if (!p_type.equalsIgnoreCase("baloon") && !p_type.equalsIgnoreCase("helicopter") && !p_type.equalsIgnoreCase("jetplane")) {
                 throw new IllegalArgumentException("invalid Aircraft type: \'" + p_type + "\' must be one of Baloon, Helicopter or Jetplane.");
             }
 
-            type = p_type;
-            name = p_name;
+            type = p_type.toLowerCase();
+            name = p_name.toLowerCase();
             coords = p_coords;
         }
     }
 
-    public startSimulation() {
+    public void startSimulation() {
         WeatherTower weatherTower = new WeatherTower();
+        List<Flyable> aircrafts = new ArrayList<>();
 
-        for (AircraftSpec a : aircraftsSpecs) {
-            Aircraft aircraft = AircraftFactory.getInstance().newAircraft(a.type, a.name, a.coords);
+        // open output file
+
+        for (AircraftSpecs as : aircraftsSpecs) {
+            FLyable aircraft = AircraftFactory.getInstance().newAircraft(type, name, coords);
             aircraft.registerTower(weatherTower);
-            weatherTower.register(aircraft);
+            aircrafts.add(aircraft);
         }
 
         for (int i = 0 ; i < runs ; i++) {
+            for (Flyable a : aircrafts) {
+                // Log status
+            }
             weatherTower.changeWeather();
         }
+
+        // close output file
     }
 }
