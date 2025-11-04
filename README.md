@@ -1,9 +1,7 @@
 # AVAJ Launcher
 
 A small airport logistics simulation used to analyze runway bottlenecks at Frankfurt
-airport. Scenarios with different weather and traffic conditions are simulated so the
-team can identify which situations cause the worst congestion and where to focus
-improvements.
+airport.
 
 ## Project overview
 
