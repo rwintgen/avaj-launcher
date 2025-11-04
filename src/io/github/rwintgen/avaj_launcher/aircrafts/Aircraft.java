@@ -2,6 +2,7 @@ package io.github.rwintgen.avaj_launcher.aircrafts;
 
 import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 import io.github.rwintgen.avaj_launcher.buildings.WeatherTower;
+import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 
 abstract class Aircraft implements Flyable {
 
@@ -25,5 +26,27 @@ abstract class Aircraft implements Flyable {
         id = p_id;
         name = p_name;
         coordinates = p_coordinates;
+    }
+
+    protected changeCoords(String direction, int amount) {
+        switch (p_direction) {
+            case longitude:
+                coordinates.longitude += amount;
+                if (longitude < 1) {
+                    longitude = 1;
+                }
+            case latitude:
+                coordinates.latitude += amount;
+                if (latitude < 1) {
+                    latitude = 1;
+                }
+            case height:
+                coordinates.height += amount;
+                if (height < 0 || height > 100) {
+                    height = height < 0 ? 0 : 100;
+                }
+            default:
+                throw new ALSimulationException("Unknown coordinates value: \'" + direction + "\'.")
+        }
     }
 }

@@ -22,13 +22,14 @@ public class Baloon extends Aircraft {
 
         switch (weather) {
             case rain:
-                // TODO: code expected behavior
+                changeCoords("height", -5);
             case fog:
-                // TODO: code expected behavior
+                changeCoords("height", -3);
             case sun:
-                // TODO: code expected behavior
+                changeCoords("longitude", 2);
+                changeCoords("height", 4);
             case snow:
-                // TODO: code expected behavior
+                changeCoords("height", -15);
             default:
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }

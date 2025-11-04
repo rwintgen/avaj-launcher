@@ -9,7 +9,7 @@ public class JetPlane extends Aircraft {
 
     public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_name, p_coordinates);
-        type = "jetlane";
+        type = "jetplane";
 
         boradcasts.put("rain", "Rain (JetPlane)");
         boradcasts.put("fog", "Fog (JetPlane)");
@@ -22,13 +22,14 @@ public class JetPlane extends Aircraft {
 
         switch (weather) {
             case rain:
-                // TODO: code expected behavior
+                changeCoords("latitude", 5);
             case fog:
-                // TODO: code expected behavior
+                changeCoords("latitude", 1);
             case sun:
-                // TODO: code expected behavior
+                changeCoords("latitude", 10);
+                changeCoords("height", 2);
             case snow:
-                // TODO: code expected behavior
+                changeCoords("height", -7);
             default:
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }
