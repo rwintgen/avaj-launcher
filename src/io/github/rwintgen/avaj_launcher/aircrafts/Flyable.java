@@ -7,4 +7,5 @@ public interface Flyable {
 
     public void updateConditions() throws ALSimulationException;
     public void registerTower(WeatherTower p_tower) throws ALSimulationException;
+    public String getFullId() throws ALSimulationException;
 }

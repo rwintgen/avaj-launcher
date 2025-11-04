@@ -35,7 +35,7 @@ public final class Scenario {
             }
 
             type = p_type.toLowerCase();
-            name = p_name.toLowerCase();
+            name = p_name;
             coords = p_coords;
         }
     }

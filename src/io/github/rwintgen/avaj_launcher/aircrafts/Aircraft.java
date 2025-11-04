@@ -14,6 +14,7 @@ abstract class Aircraft implements Flyable {
     protected WeatherTower weatherTower;
 
     public abstract void updateConditions() throws ALSimulationException;
+    public abstract String getFullId() throws ALSimulationException;
 
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
         if (p_id < 0) {

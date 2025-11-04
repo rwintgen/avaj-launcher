@@ -10,7 +10,7 @@ import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 public class AircraftFactory {
 
     private static AircraftFactory instance;
-    private static long id = 0;
+    private static long id = 1;
 
     private AircraftFactory() {
     }

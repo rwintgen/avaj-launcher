@@ -2,6 +2,7 @@ package io.github.rwintgen.avaj_launcher;
 
 import io.github.rwintgen.avaj_launcher.utils.Parser;
 import io.github.rwintgen.avaj_launcher.utils.Scenario;
+import io.github.rwintgen.avaj_launcher.utils.Writer;
 
 public class Main {
 
@@ -11,11 +12,13 @@ public class Main {
                 throw new IllegalArgumentException("Invalid number of arguments.");
             }
 
+            Writer.getInstance().init();
             Scenario scenarioData = Parser.parseScenarioFile(args[0]);
             scenarioData.startSimulation();
+            Writer.getInstance().close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
-            e.printStackTrace();
+            // e.printStackTrace();
             System.exit(1);
         }
     }

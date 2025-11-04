@@ -2,6 +2,7 @@ package io.github.rwintgen.avaj_launcher.aircrafts;
 
 import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 import io.github.rwintgen.avaj_launcher.utils.Coordinates;
+import io.github.rwintgen.avaj_launcher.utils.Writer;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -18,6 +19,10 @@ public class JetPlane extends Aircraft {
         broadcasts.put("fog", "Fog (JetPlane)");
         broadcasts.put("sun", "Sun (JetPlane)");
         broadcasts.put("snow", "Snow (JetPlane)");
+    }
+
+    public String getFullId() {
+        return (fullId);
     }
 
     public void updateConditions() throws ALSimulationException {
@@ -40,5 +45,7 @@ public class JetPlane extends Aircraft {
             default:
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }
+
+        Writer.getInstance().write(getFullId() + ": " + broadcasts.get(weather));
     }
 }

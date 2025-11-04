@@ -22,9 +22,10 @@ public final class Writer {
         return instance;
     }
 
-    public void init(Path path) throws ALSimulationException {
+    public void init() throws ALSimulationException {
         try {
             if (writer == null) {
+                Path path = Path.of("simulation.txt");
                 writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
             }
             else {
@@ -35,7 +36,7 @@ public final class Writer {
         }
     }
 
-    public void writeToOutput(String line) throws ALSimulationException {
+    public void write(String line) throws ALSimulationException {
         if (writer == null) {
             throw new ALSimulationException("Writer not initialized");
         }

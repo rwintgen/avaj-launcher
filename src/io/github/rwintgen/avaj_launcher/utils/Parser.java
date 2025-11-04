@@ -65,7 +65,7 @@ public final class Parser {
                 }
 
                 String type = tokens[0].toLowerCase();
-                String name = tokens[1].toLowerCase();
+                String name = tokens[1];
                 int longitude = Integer.parseInt(tokens[2]);
                 int latitude = Integer.parseInt(tokens[3]);
                 int height = Integer.parseInt(tokens[4]);
