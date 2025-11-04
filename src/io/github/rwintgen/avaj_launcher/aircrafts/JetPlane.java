@@ -5,16 +5,16 @@ import java.util.Dictionary;
 
 public class JetPlane extends Aircraft {
 
-    Dictionary<String, String> broadcasts = new Hashtable<>;
+    Dictionary<String, String> broadcasts = new Hashtable<>();
 
     public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_name, p_coordinates);
         type = "jetplane";
 
-        boradcasts.put("rain", "Rain (JetPlane)");
-        boradcasts.put("fog", "Fog (JetPlane)");
-        boradcasts.put("sun", "Sun (JetPlane)");
-        boradcasts.put("snow", "Snow (JetPlane)");
+        broadcasts.put("rain", "Rain (JetPlane)");
+        broadcasts.put("fog", "Fog (JetPlane)");
+        broadcasts.put("sun", "Sun (JetPlane)");
+        broadcasts.put("snow", "Snow (JetPlane)");
     }
 
     public void updateConditions() {

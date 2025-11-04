@@ -5,16 +5,16 @@ import java.util.Dictionary;
 
 public class Baloon extends Aircraft {
 
-    Dictionary<String, String> broadcasts = new Hashtable<>;
+    Dictionary<String, String> broadcasts = new Hashtable<>();
 
     public Baloon(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_name, p_coordinates);
         type = "baloon";
 
-        boradcasts.put("rain", "Rain (Baloon)");
-        boradcasts.put("fog", "Fog (Baloon)");
-        boradcasts.put("sun", "Sun (Baloon)");
-        boradcasts.put("snow", "Snow (Baloon)");
+        broadcasts.put("rain", "Rain (Baloon)");
+        broadcasts.put("fog", "Fog (Baloon)");
+        broadcasts.put("sun", "Sun (Baloon)");
+        broadcasts.put("snow", "Snow (Baloon)");
     }
 
     public void updateConditions() {

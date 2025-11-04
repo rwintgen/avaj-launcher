@@ -29,9 +29,6 @@ public final class Scenario {
         final Coordinates coords;
 
         AircraftSpecs (String p_type, String p_name, Coordinates p_coords) {
-            p_type = p_type.toLowerCase();
-            p_name = p_name.toLowerCase();
-
             if (!p_type.equalsIgnoreCase("baloon") && !p_type.equalsIgnoreCase("helicopter") && !p_type.equalsIgnoreCase("jetplane")) {
                 throw new IllegalArgumentException("invalid Aircraft type: \'" + p_type + "\' must be one of Baloon, Helicopter or Jetplane.");
             }
@@ -49,7 +46,7 @@ public final class Scenario {
         // open output file
 
         for (AircraftSpecs as : aircraftsSpecs) {
-            FLyable aircraft = AircraftFactory.getInstance().newAircraft(type, name, coords);
+            Flyable aircraft = AircraftFactory.getInstance().newAircraft(type, name, coords);
             aircraft.registerTower(weatherTower);
             aircrafts.add(aircraft);
         }

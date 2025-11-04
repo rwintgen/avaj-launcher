@@ -36,7 +36,7 @@ abstract class Aircraft implements Flyable {
         p_tower.register(this);
     }
 
-    protected changeCoords(String direction, int amount) {
+    protected void changeCoords(String direction, int amount) {
         switch (p_direction) {
             case longitude:
                 coordinates.longitude += amount;
@@ -54,7 +54,7 @@ abstract class Aircraft implements Flyable {
                     height = height < 0 ? 0 : 100;
                 }
             default:
-                throw new ALSimulationException("Unknown coordinates value: \'" + direction + "\'.")
+                throw new ALSimulationException("Unknown coordinates value: \'" + direction + "\'.");
         }
     }
 }

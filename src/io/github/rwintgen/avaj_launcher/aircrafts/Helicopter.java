@@ -5,16 +5,16 @@ import java.util.Dictionary;
 
 public class Helicopter extends Aircraft {
 
-    Dictionary<String, String> broadcasts = new Hashtable<>;
+    Dictionary<String, String> broadcasts = new Hashtable<>();
 
     public Helicopter(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_name, p_coordinates);
         type = "helicopter";
 
-        boradcasts.put("rain", "Rain (Helicopter)");
-        boradcasts.put("fog", "Fog (Helicopter)");
-        boradcasts.put("sun", "Sun (Helicopter)");
-        boradcasts.put("snow", "Snow (Helicopter)");
+        broadcasts.put("rain", "Rain (Helicopter)");
+        broadcasts.put("fog", "Fog (Helicopter)");
+        broadcasts.put("sun", "Sun (Helicopter)");
+        broadcasts.put("snow", "Snow (Helicopter)");
     }
 
     public void updateConditions() {
