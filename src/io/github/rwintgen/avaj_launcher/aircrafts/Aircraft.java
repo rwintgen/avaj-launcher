@@ -43,6 +43,13 @@ abstract class Aircraft implements Flyable {
         int lat = coordinates.getLatitude();
         int h = coordinates.getHeight();
 
+        // DEBUG
+        System.out.println("Aircraft (" + type + ") " + name + "'s previous coordinates:");
+        System.out.println("lon: " + lon);
+        System.out.println("lat: " + lat);
+        System.out.println("h: " + h);
+        System.out.println("weather at those coords: " + weatherTower.getWeather(coordinates));
+
         switch (direction) {
             case "longitude":
                 lon += amount;
@@ -62,5 +69,12 @@ abstract class Aircraft implements Flyable {
         }
 
         coordinates = new Coordinates(lon, lat, h);
+
+        // DEBUG
+        System.out.println("Aircraft (" + type + ") " + name + "'s current coordinates:");
+        System.out.println("lon: " + lon);
+        System.out.println("lat: " + lat);
+        System.out.println("h: " + h);
+        System.out.println("weather at those coords: " + weatherTower.getWeather(coordinates));
     }
 }

@@ -20,7 +20,6 @@ public final class WeatherProvider {
             throw new IllegalArgumentException("coordinates must not be null");
         }
 
-        // Simple generation algorithm that returns any coordinates' weather
         int seed = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight();
         int index = (seed + 42) % 4;
 
