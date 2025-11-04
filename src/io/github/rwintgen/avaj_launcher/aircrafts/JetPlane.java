@@ -1,14 +1,17 @@
 package io.github.rwintgen.avaj_launcher.aircrafts;
 
+import io.github.rwintgen.avaj_launcher.aircrafts.JetPlane;
 import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
+import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 import java.util.Dictionary;
+import java.util.Hashtable;
 
 public class JetPlane extends Aircraft {
 
     Dictionary<String, String> broadcasts = new Hashtable<>();
 
     public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
-        super(p_name, p_coordinates);
+        super(p_id, p_name, p_coordinates);
         type = "jetplane";
 
         broadcasts.put("rain", "Rain (JetPlane)");
@@ -17,18 +20,18 @@ public class JetPlane extends Aircraft {
         broadcasts.put("snow", "Snow (JetPlane)");
     }
 
-    public void updateConditions() {
+    public void updateConditions() throws ALSimulationException {
         String weather = weatherTower.getWeather(coordinates);
 
         switch (weather) {
-            case rain:
+            case "rain":
                 changeCoords("latitude", 5);
-            case fog:
+            case "fog":
                 changeCoords("latitude", 1);
-            case sun:
+            case "sun":
                 changeCoords("latitude", 10);
                 changeCoords("height", 2);
-            case snow:
+            case "snow":
                 changeCoords("height", -7);
             default:
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");

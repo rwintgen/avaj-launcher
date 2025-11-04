@@ -1,8 +1,9 @@
 package io.github.rwintgen.avaj_launcher.buildings;
 
 import io.github.rwintgen.avaj_launcher.aircrafts.Flyable;
-import java.util.List;
+import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tower {
 
@@ -20,7 +21,7 @@ public class Tower {
         }
     }
 
-    protected void conditionsChanged() {
+    protected void conditionsChanged() throws ALSimulationException{
         for (Flyable f : observers) {
             f.updateConditions();
         }

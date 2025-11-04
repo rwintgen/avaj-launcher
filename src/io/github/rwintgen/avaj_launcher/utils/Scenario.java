@@ -1,8 +1,9 @@
 package io.github.rwintgen.avaj_launcher.utils;
 
-import io.github.rwintgen.avaj_launcher.buildings.WeatherTower;
-import io.github.rwintgen.avaj_launcher.buildings.AircraftFactory;
 import io.github.rwintgen.avaj_launcher.aircrafts.Flyable;
+import io.github.rwintgen.avaj_launcher.buildings.AircraftFactory;
+import io.github.rwintgen.avaj_launcher.buildings.WeatherTower;
+import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,14 +40,14 @@ public final class Scenario {
         }
     }
 
-    public void startSimulation() {
+    public void startSimulation() throws ALSimulationException {
         WeatherTower weatherTower = new WeatherTower();
         List<Flyable> aircrafts = new ArrayList<>();
 
         // open output file
 
         for (AircraftSpecs as : aircraftsSpecs) {
-            Flyable aircraft = AircraftFactory.getInstance().newAircraft(type, name, coords);
+            Flyable aircraft = AircraftFactory.getInstance().newAircraft(as.type, as.name, as.coords);
             aircraft.registerTower(weatherTower);
             aircrafts.add(aircraft);
         }

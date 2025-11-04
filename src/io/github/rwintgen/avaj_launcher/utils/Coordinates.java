@@ -22,15 +22,15 @@ public final class Coordinates {
         height = p_height;
     }
 
-    int getLongitude() {
+    public int getLongitude() {
         return (longitude);
     }
 
-    int getLatitude() {
+    public int getLatitude() {
         return (latitude);
     }
 
-    int getHeight() {
+    public int getHeight() {
         return (height);
     }
 }

@@ -1,18 +1,18 @@
 package io.github.rwintgen.avaj_launcher.aircrafts;
 
-import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 import io.github.rwintgen.avaj_launcher.buildings.WeatherTower;
 import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
+import io.github.rwintgen.avaj_launcher.utils.Coordinates;
 
 abstract class Aircraft implements Flyable {
 
     protected final long id;
     protected final String name;
-    protected final String type;
+    protected String type;
     protected Coordinates coordinates;
-    protected final WeatherTower weatherTower;
+    protected WeatherTower weatherTower;
 
-    public abstract void updateConditions();
+    public abstract void updateConditions() throws ALSimulationException;
 
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
         if (p_id < 0) {
@@ -27,7 +27,7 @@ abstract class Aircraft implements Flyable {
         coordinates = p_coordinates;
     }
 
-    public abstract void registerTower(WeatherTower p_tower) {
+    public void registerTower(WeatherTower p_tower) throws ALSimulationException{
         if (p_tower == null) {
             throw new ALSimulationException("No weather tower found");
         }
@@ -37,24 +37,28 @@ abstract class Aircraft implements Flyable {
     }
 
     protected void changeCoords(String direction, int amount) {
-        switch (p_direction) {
-            case longitude:
-                coordinates.longitude += amount;
-                if (longitude < 1) {
-                    longitude = 1;
-                }
-            case latitude:
-                coordinates.latitude += amount;
-                if (latitude < 1) {
-                    latitude = 1;
-                }
-            case height:
-                coordinates.height += amount;
-                if (height < 0 || height > 100) {
-                    height = height < 0 ? 0 : 100;
-                }
+        int lon = coordinates.getLongitude();
+        int lat = coordinates.getLatitude();
+        int h = coordinates.getHeight();
+
+        switch (direction) {
+            case "longitude":
+                lon += amount;
+                if (lon < 0) lon = 0;
+                break;
+            case "latitude":
+                lat += amount;
+                if (lat < 0) lat = 0;
+                break;
+            case "height":
+                h += amount;
+                if (h < 0) h = 0;
+                if (h > 100) h = 100;
+                break;
             default:
-                throw new ALSimulationException("Unknown coordinates value: \'" + direction + "\'.");
+                throw new IllegalArgumentException("Unknown coordinates value: '" + direction + "'.");
         }
+
+        coordinates = new Coordinates(lon, lat, h);
     }
 }

@@ -21,8 +21,8 @@ public final class WeatherProvider {
         }
 
         // Simple generation algorithm that returns any coordinates' weather
-        int seed = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
-        index = seed + 42 % 4;
+        int seed = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight();
+        int index = seed + 42 % 4;
 
         return (weather[index]);
     }
