@@ -38,17 +38,17 @@ abstract class Aircraft implements Flyable {
         p_tower.register(this);
     }
 
-    protected void changeCoords(String direction, int amount) {
+    protected void changeCoords(String direction, int amount) throws ALSimulationException {
         int lon = coordinates.getLongitude();
         int lat = coordinates.getLatitude();
         int h = coordinates.getHeight();
 
-        // DEBUG
-        System.out.println("Aircraft (" + type + ") " + name + "'s previous coordinates:");
-        System.out.println("lon: " + lon);
-        System.out.println("lat: " + lat);
-        System.out.println("h: " + h);
-        System.out.println("weather at those coords: " + weatherTower.getWeather(coordinates));
+        // // DEBUG
+        // System.out.println("Aircraft (" + type + ") " + name + "'s previous coordinates:");
+        // System.out.println("lon: " + lon);
+        // System.out.println("lat: " + lat);
+        // System.out.println("h: " + h);
+        // System.out.println("weather at those coords: " + weatherTower.getWeather(coordinates));
 
         switch (direction) {
             case "longitude":
@@ -70,11 +70,15 @@ abstract class Aircraft implements Flyable {
 
         coordinates = new Coordinates(lon, lat, h);
 
-        // DEBUG
-        System.out.println("Aircraft (" + type + ") " + name + "'s current coordinates:");
-        System.out.println("lon: " + lon);
-        System.out.println("lat: " + lat);
-        System.out.println("h: " + h);
-        System.out.println("weather at those coords: " + weatherTower.getWeather(coordinates));
+        if (coordinates.getHeight() <= 0) {
+            weatherTower.unregister(this);
+        }
+
+        // // DEBUG
+        // System.out.println("Aircraft (" + type + ") " + name + "'s current coordinates:");
+        // System.out.println("lon: " + lon);
+        // System.out.println("lat: " + lat);
+        // System.out.println("h: " + h);
+        // System.out.println("weather at those coords: " + weatherTower.getWeather(coordinates));
     }
 }

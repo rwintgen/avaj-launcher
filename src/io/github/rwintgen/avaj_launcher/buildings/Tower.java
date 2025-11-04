@@ -20,12 +20,16 @@ public class Tower {
     public void unregister(Flyable p_flyable) throws ALSimulationException {
         if (p_flyable != null) {
             observers.remove(p_flyable);
-            Writer.getInstance().write("Tower says: " + p_flyable.getFullId() + " unregistered to weather tower.");
+            Writer.getInstance().write(p_flyable.getFullId() + " landing.");
+            Writer.getInstance().write("Tower says: " + p_flyable.getFullId() + " unregistered from weather tower.");
         }
     }
 
     protected void conditionsChanged() throws ALSimulationException {
-        for (Flyable f : observers) {
+        if (observers.size() == 0) {
+            throw new ALSimulationException("All aircrafts have landed, stopping simulation.");
+        }
+        for (Flyable f : new ArrayList<>(observers)) {
             f.updateConditions();
         }
     }

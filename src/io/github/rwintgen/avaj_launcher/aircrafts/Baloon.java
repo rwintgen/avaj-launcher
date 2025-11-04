@@ -46,6 +46,10 @@ public class Baloon extends Aircraft {
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }
 
+        if (coordinates.getHeight() <= 0) {
+            return;
+        }
+
         Writer.getInstance().write(getFullId() + ": " + broadcasts.get(weather));
     }
 }

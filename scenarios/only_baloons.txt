@@ -1,0 +1,7 @@
+25
+Baloon B1 2 3 20
+Baloon B2 1 8 66
+Baloon B3 102 22 34
+Baloon B4 98 34 100
+Baloon B5 157 80 61
+Baloon B6 102 2200 1

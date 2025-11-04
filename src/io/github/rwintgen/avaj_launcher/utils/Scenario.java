@@ -51,8 +51,8 @@ public final class Scenario {
         }
 
         for (int i = 0 ; i < runs ; i++) {
-            // DEBUG
-            System.out.println("\nStarting run " + i);
+            // // DEBUG
+            // System.out.println("\nStarting run " + i);
 
             weatherTower.changeWeather();
         }
