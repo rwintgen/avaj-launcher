@@ -3,7 +3,7 @@ package io.github.rwintgen.avaj_launcher.utils;
 public final class WeatherProvider {
 
     private static WeatherProvider instance;
-    private final String[] weather = { "SUN", "RAIN", "FOG", "SNOW" };
+    private final String[] weather = { "sun", "rain", "fog", "snow" };
 
     private WeatherProvider() {
     }
@@ -22,7 +22,7 @@ public final class WeatherProvider {
 
         // Simple generation algorithm that returns any coordinates' weather
         int seed = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight();
-        int index = seed + 42 % 4;
+        int index = (seed + 42) % 4;
 
         return (weather[index]);
     }

@@ -26,13 +26,17 @@ public class Helicopter extends Aircraft {
         switch (weather) {
             case "rain":
                 changeCoords("longitude", 5);
+                break;
             case "fog":
                 changeCoords("longitude", 1);
+                break;
             case "sun":
                 changeCoords("longitude", 10);
                 changeCoords("height", 2);
+                break;
             case "snow":
                 changeCoords("height", -12);
+                break;
             default:
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }

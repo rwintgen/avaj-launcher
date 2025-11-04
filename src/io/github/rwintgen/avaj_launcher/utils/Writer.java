@@ -1,5 +1,6 @@
 package io.github.rwintgen.avaj_launcher.utils;
 
+import io.github.rwintgen.avaj_launcher.exceptions.ALSimulationException;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +28,7 @@ public final class Writer {
                 writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
             }
             else {
-                throw new ALSimulationException("Already existing file 'simulation.txt'")
+                throw new ALSimulationException("Already existing file 'simulation.txt'");
             }
         } catch (IOException e) {
             throw new ALSimulationException("Unable to open file 'simulation.txt': " + e.getMessage());

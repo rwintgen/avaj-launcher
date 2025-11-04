@@ -26,13 +26,17 @@ public class JetPlane extends Aircraft {
         switch (weather) {
             case "rain":
                 changeCoords("latitude", 5);
+                break;
             case "fog":
                 changeCoords("latitude", 1);
+                break;
             case "sun":
                 changeCoords("latitude", 10);
                 changeCoords("height", 2);
+                break;
             case "snow":
                 changeCoords("height", -7);
+                break;
             default:
                 throw new ALSimulationException("Unknown climate conditions: \'" + weather + "\'.");
         }
